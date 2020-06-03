@@ -37,7 +37,7 @@
         return header("Location: ../admin/");
       }else{
 
-        $client_login = "SELECT * FROM customers WHERE email='$email' AND password='$passcheck'";
+        $client_login = "SELECT * FROM customers WHERE phone='$email' AND password='$passcheck'";
         $Auth = mysqli_query($this->conn, $client_login);
         $bj = mysqli_fetch_assoc($Auth);
 
@@ -51,7 +51,8 @@
           return header("Location: ../index.php");
           
       }
-      header("Location: index.php");
+      $host  = $_SERVER['HTTP_HOST'];
+       header("Location: ../index.php?error=1&error=1");
       // echo mysqli_error($this->conn);
     }
   }

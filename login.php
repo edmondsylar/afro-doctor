@@ -6,9 +6,12 @@
 				<div id="login">
 					<h1>Login</h1>
 					<div class="box_form">
+						<?php if(isset($_GET['error'])):?>
+							<code> Error: Check your Phone Number or password</code>
+						<?php endif;?>
 						<form method="POST" action="backend/login.php">
 							<div class="form-group">
-								<input type="email" name="email" class="form-control" placeholder="Your email address">
+								<input type="text" name="email" class="form-control" placeholder="Phone Number">
 							</div>
 							<div class="form-group">
 								<input type="password" name="password" class="form-control" placeholder="Your password">
