@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-3 col-6">
         <div id="logo">
-          <a href="./home.php" title="Findoctor">Dokta Admin</a> | 
+          <a href="./home.php" title="Findoctor">AfroDoctor Admin</a> | 
           <a href="../index.php" target="_blank" title="Findoctor"> Users</a>
         </div>
       </div>

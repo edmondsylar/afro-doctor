@@ -5,7 +5,7 @@
 		<div class="container margin_60_35">
 			<div class="row">
 				<div class="col-lg-3 col-md-12">
-					<h3><a href="index.php" title="Dokta">Dokta App</a>
+					<h3><a href="index.php" title="AfroDoctor">AfroDoctor</a>
 				</div>
 			</div>
 			<!--/row-->

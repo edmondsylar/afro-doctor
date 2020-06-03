@@ -175,11 +175,21 @@
         // echo $_SESSION['url'];
         $host  = $_SERVER['HTTP_HOST'];
         $uri   = $_SESSION['url'];
-        $extra = 'mypage.php';
         header("Location: http://$host$uri");
       }else{
         echo "Error while adding product". mysqli_error($this->conn);
       }
+    }
+
+    function _rem($product, $user){
+      $q = "DELETE FROM cart where product='$product' AND user='$user'";
+      if(mysqli_query($this->conn, $q)){
+
+        header("Location: ../cart.php");
+      }else{
+        echo "Error while adding product". mysqli_error($this->conn);
+      }
+
     }
 
     function _admin_data(){
