@@ -54,7 +54,12 @@
 						<h6>Type</h6>
 						<div class="switch-field">
 							<input type="radio" id="all" name="type_patient" value="all" checked>
-							<label for="all">All</label>
+							<?php if($type):?>
+								<label for="all"> <?php echo $type; ?> </label>
+							<?php else:?>
+								<label for="all">General Purpose</label>
+							<?php endif; ?>
+								
 							<input disabled type="radio" id="doctors" name="type_patient" value="doctors">
 						</div>
 					</li>

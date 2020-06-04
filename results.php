@@ -1,13 +1,7 @@
 <?php 
 	include_once "includes/head.php";
 	include_once "includes/top.php";
-	$fetch = $cur->checkout($_SESSION['email']);
-	$pre_cart = $fetch['products'];
 	
-	$cart = array();
-	foreach($pre_cart as $product){
-		array_push($cart, $product['product']);
-	}
 ?>
 
 
@@ -41,13 +35,13 @@
 								<form action="backend/remove.php" method="POST" style="float: right;">
 									<input type="hidden" name="product" value="<?php echo $value['title'] ?>">
 									<input type="hidden" name="price" value="<?php echo $value['price'] ?>">
-									<input type="submit" class="custom_btn" value="Remove"/>
+									<input type="submit" class="btn btn-sm btn-danger" value="Remove"/>
 								</form>
 								<?php }else{?>
 									<form action="backend/add.php" method="POST" style="float: right;">
 									<input type="hidden" name="product" value="<?php echo $value['title'] ?>">
 									<input type="hidden" name="price" value="<?php echo $value['price'] ?>">
-									<input type="submit" class="custom_btn" value="Add to Cart"/>
+									<input type="submit" class="btn btn-sm btn-success" value="Add to Cart"/>
 								</form>
 								<?php }?>
 								<figure>
@@ -58,8 +52,8 @@
             					<p><?php echo $value['address'] ?></p>
 								<h6><?php echo $value['price'] ?></h6>
 								<ul>
-									<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
-									<li><a href="#0">More Details</a></li>
+									<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">&nbsp;</a></li>
+									<li><a href="details.php?id=<?php echo $value['id']?>&type=drug">More Details</a></li>
 								</ul>
 							</div>
 						<?php endforeach; ?>
@@ -71,11 +65,20 @@
 					<?php foreach ($services as $key => $value) : ?>
 						<?php $image = base64_encode($value['image']); ?>
 							<div class="strip_list wow fadeIn">
-								<form action="backend/add.php" method="POST" style="float: right;">
+								<?php if(in_array($value['title'], $cart)){?>
+
+								<form action="backend/remove.php" method="POST" style="float: right;">
 									<input type="hidden" name="product" value="<?php echo $value['title'] ?>">
 									<input type="hidden" name="price" value="<?php echo $value['price'] ?>">
-									<input type="submit" value="Add to cart"/>
+									<input type="submit" class="btn btn-sm btn-danger" value="Remove"/>
 								</form>
+								<?php }else{?>
+									<form action="backend/add.php" method="POST" style="float: right;">
+									<input type="hidden" name="product" value="<?php echo $value['title'] ?>">
+									<input type="hidden" name="price" value="<?php echo $value['price'] ?>">
+									<input type="submit" class="btn btn-sm btn-success" value="Add to Cart"/>
+								</form>
+								<?php }?>
 								<figure>
 									<a href="detail-page.html"><img src="data:image/jpg;charset=utf8;base64,<?php echo $image; ?>" alt=""></a>
 								</figure>
@@ -84,8 +87,8 @@
             					<p><?php echo $value['address'] ?></p>
 								<h6>View details about service</h6>
 								<ul>
-									<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">View on Map</a></li>
-									<li><a href="detail-page.html">More Details</a></li>
+									<li><a href="#0" onclick="onHtmlClick('Doctors', 1)" class="btn_listing">&nbsp;</a></li>
+									<li><a href="details.php?id=<?php echo $value['id']?>&type=service">More Details</a></li>
 								</ul>
 							</div>
 						<?php endforeach; ?>
@@ -110,8 +113,9 @@
 				</div>
 				<!-- /col -->
 				
-				<aside class="col-lg-5" id="sidebar">
-					<div id="map_listing" class="normal_list">
+				<aside class="col-xl-4 col-lg-4" id="sidebar">
+					<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+						<iframe src="https://maps.google.com/maps?q=uganda&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</aside>
 				<!-- /aside -->

@@ -1,5 +1,6 @@
 <?php 
-
+      $type = 'All';
+      
       include_once "includes/head.php";
       include_once "includes/header.php";
       include_once "../backend/config.php";
@@ -24,7 +25,7 @@
           <?php foreach ($data['services'] as $key => $value) : ?>
             <?php $image = base64_encode($value['image']); ?>
             <div class="col-lg-3 col-md-6">
-              <a href="list.html" class="box_cat_home">
+              <a href="details.php?id=<?php echo $value['id'];?>&type=service" class="box_cat_home">
                 <i class="icon-info-4"></i>
                 <!-- <img src="img/icon_cat_8.svg" width="60" height="60" alt=""> -->
                 <img  width="60" height="60" src="data:image/jpg;charset=utf8;base64,<?php echo $image; ?>" alt="">
@@ -52,7 +53,7 @@
           <?php foreach ($data['drugs'] as $key => $value) : ?>
             <?php $image = base64_encode($value['image']); ?>
             <div class="col-lg-3 col-md-6">
-              <a href="list.html" class="box_cat_home">
+              <a href="details.php?id=<?php echo $value['id'];?>&type=drug" class="box_cat_home">
                 <i class="icon-info-4"></i>
                 <img  width="60" height="60" src="data:image/jpg;charset=utf8;base64,<?php echo $image; ?>" alt="">
                 <h3><?php echo $value['title']?></h3>

@@ -38,5 +38,13 @@
 	}
 
 	$type = $cur->_cart($_SESSION['email']);
+	$fetch = $cur->checkout($_SESSION['email']);
+	$pre_cart = $fetch['products'];
+	
+	$cart = array();
+	foreach($pre_cart as $product){
+		array_push($cart, $product['product']);
+	}
+
 	include_once "header.php";
 ?>

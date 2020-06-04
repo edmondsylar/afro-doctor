@@ -69,9 +69,20 @@
       }else{
         echo "Something is wrong <br> ".mysqli_error($this->conn);
       }
+    }
 
+    function _details_product($id, $type){
+      if($type == 'service'){
+        $query = "SELECT * FROM services where id='$id'";
+        $exec = mysqli_query($this->conn, $query);
+        return $exec;
 
+      }elseif ($type == 'drug') {
+        $query = "SELECT * FROM drugs where id='$id'";
+        $res = mysqli_query($this->conn, $query);
+        return $res;
 
+      }
     }
 
   function register($email, $name, $password){
