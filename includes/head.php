@@ -22,13 +22,20 @@
 	<link href="css/menu.css" rel="stylesheet">
 	<link href="css/vendors.css" rel="stylesheet">
 	<link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
-    
+
 	<!-- YOUR CUSTOM CSS -->
 	<link href="css/custom.css" rel="stylesheet">
+	<style>
+			html,
+			body {
+					height: 100%;
+					/* width: 90%; */
+			}
+	</style>
 
 </head>
 
-<?php 
+<?php
 	include_once "backend/config.php";
 	$cur =  new AppInit();
 	session_start();
@@ -40,7 +47,7 @@
 	$type = $cur->_cart($_SESSION['email']);
 	$fetch = $cur->checkout($_SESSION['email']);
 	$pre_cart = $fetch['products'];
-	
+
 	$cart = array();
 	foreach($pre_cart as $product){
 		array_push($cart, $product['product']);

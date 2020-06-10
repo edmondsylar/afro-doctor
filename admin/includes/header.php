@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-3 col-6">
         <div id="logo">
-          <a href="./home.php" title="Findoctor">AfroDoctor Admin</a> | 
+          <a href="./home.php" title="Findoctor">AfroDoctor Admin</a> |
           <a href="../index.php" target="_blank" title="Findoctor"> Users</a>
         </div>
       </div>
@@ -14,6 +14,7 @@
             <li class="submenu"><a href="home.php" class="show-submenu">Home</a></li>
             <li class="submenu"><a href="../admin/drugs.php">Add Drugs</a></li>
             <li class="submenu"><a href="../admin/services.php">Add Services</a></li>
+            <li class="submenu"><a href="../admin/pickups.php">Locations</a></li>
             <li class="submenu">
               <a href="#0" class="show-submenu">Profile<i class="icon-down-open-mini"></i></a>
               <ul>
@@ -59,7 +60,7 @@
 							<?php else:?>
 								<label for="all">General Purpose</label>
 							<?php endif; ?>
-								
+
 							<input disabled type="radio" id="doctors" name="type_patient" value="doctors">
 						</div>
 					</li>

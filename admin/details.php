@@ -78,7 +78,6 @@ include_once "includes/header.php";
             <iframe src="https://maps.google.com/maps?q=<?php echo $value['address']; ?>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
         </aside>
-      </div>
     </div>
   <?php endforeach; ?>
 <?php endif; ?>

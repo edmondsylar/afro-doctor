@@ -37,4 +37,7 @@
 		<div data-loader="circle-side"></div>
 	</div>
 	<!-- End Preload -->
-<?php session_start(); ?>
+<?php
+	session_start();
+	$type = 'All';
+?>

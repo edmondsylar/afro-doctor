@@ -17,7 +17,7 @@
 ?>
 
 <div class="container margin_120_95">
-	
+
 	<?php if(!empty($products)): ?>
 		<?php foreach($products as $product): ?>
 			<div class="strip_list wow fadeIn shadow-sm" style="padding-left: 10px;">
@@ -40,13 +40,13 @@
 					<input type="hidden" name="product" value="<?php echo $product['product']; ?>">
 					<input type="hidden" name="price" value="<?php echo $product['price']; ?>">
 				</div>
-				<div class="col-sm">		
+				<div class="col-sm">
 					<span>
 						 <h6>Unit Price</h6>
 						 <?php echo $product['price']; ?> shs <br>
 					</span>
 				</div>
-				<div class="col-sm">		
+				<div class="col-sm">
 					<span>
 						<h6>Total</h6>
 						<?php echo $product['total'] ?> shs <br>
@@ -79,7 +79,7 @@
 				<input type="hidden" name="reference" value="Medicine Purchase" />
 				<input type="hidden" name="provider_reference_text" value="Payment For drugs" />
 				<input type="hidden" name="account" value="100712303477" />
-				<input type="hidden" name="return" value="https://hsvug.com/services/backend/empty_cart.php" />
+				<input type="hidden" name="return" value="https://hsvug.com/services/pickups.php" />
 				<input type="hidden" name="prefilled_payer_email_address" value="" />
 				<input type="hidden" name="prefilled_payer_mobile_payment_msisdn" value="" />
 				<input type="hidden" name="prefilled_payer_names" value="" />

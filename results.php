@@ -1,7 +1,7 @@
-<?php 
+<?php
 	include_once "includes/head.php";
 	include_once "includes/top.php";
-	
+
 ?>
 
 
@@ -60,7 +60,7 @@
 					<?php else : ?>
 						<p>No record matched your search for $_GET['search']</p>
 					<?php endif; ?>
-					
+
 				<?php if (!empty($services)) : ?>
 					<?php foreach ($services as $key => $value) : ?>
 						<?php $image = base64_encode($value['image']); ?>
@@ -95,7 +95,7 @@
 					<?php else : ?>
 						<p>No record matched your search for $_GET['search']</p>
 					<?php endif; ?>
-					
+
 					<nav aria-label="" class="add_top_20">
 						<ul class="pagination pagination-sm">
 							<li class="page-item disabled">
@@ -112,14 +112,14 @@
 					<!-- /pagination -->
 				</div>
 				<!-- /col -->
-				
+
 				<aside class="col-xl-4 col-lg-4" id="sidebar">
-					<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+					<!-- <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
 						<iframe src="https://maps.google.com/maps?q=uganda&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
-					</div>
+					</div> -->
 				</aside>
 				<!-- /aside -->
-				
+
 			</div>
 			<!-- /row -->
 		</div>

@@ -49,7 +49,7 @@
 
           // echo isset($_SESSION['loggedin']);
           return header("Location: ../index.php");
-          
+
       }
       $host  = $_SERVER['HTTP_HOST'];
        header("Location: ../index.php?error=1&error=1");
@@ -100,7 +100,7 @@
     function _cart($user){
         $query = "SELECT * FROM cart where user='$user'";
         $res = mysqli_query($this->conn, $query);
-        
+
         return ($res->num_rows);
         // return count($row);
     }
@@ -167,7 +167,7 @@
       }
 
     }
-    
+
     function add($product, $price, $user){
       $add = "INSERT INTO cart(`product`, `price`, `total`, `user`) VALUES ('$product', '$price', '$price', '$user')";
       if(mysqli_query($this->conn, $add)){
@@ -233,7 +233,35 @@
           return header("Location: cart.php");
           // print_r($tt);
       }
+    }
   }
-}
 
+
+  function pickups(){
+    $query = "SELECT * FROM pickups";
+    $result = mysqli_query($this->conn, $query);
+
+    return $result;
   }
+
+  function add_location($location, $number, $directions, $image){
+    echo "this has been called";
+
+    $query = "INSERT INTO pickups(`location`, `number`, `directions`, `image`) VALUES('$location', '$number', '$directions', '$image')";
+    mysqli_query($this->conn, $query);
+    if(mysqli_error($this->conn)){
+      echo mysqli_error($this->conn);
+    }else{
+      return header("Location: ../admin/pickups.php");
+    }
+    // print_r($result);
+
+      // if($result){
+      //   header("Location: ../admin/pickups.php");
+      // }else{
+      //   print_r($result);
+      // }
+    } #end of the function here.
+
+}
+?>
