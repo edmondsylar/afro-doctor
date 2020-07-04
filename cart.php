@@ -71,7 +71,7 @@
 		<span>Total: &nbsp; </span><strong><?php echo $cart['total'];?> shs</strong><br>
 		<small>Local Deliveries not included yet <br> Shipping and custom fees not included either </small>
 			<form method="post" style="margin:0px" action="https://payments.yo.co.ug/webexpress/">
-				<input type="submit" class="btn btn-warning" name="submit" value="Proceed to Check Out" />
+				<input type="submit" class="btn btn-warning" name="submit" value="Make Payment" />
 				<input type="hidden" name="bid" value="219" />
 				<input type="hidden" name="currency" value="UGX" />
 				<input type="hidden" name="amount" id='api_amount' value="<?php echo $cart['total']?>" />
@@ -79,7 +79,7 @@
 				<input type="hidden" name="reference" value="Medicine Purchase" />
 				<input type="hidden" name="provider_reference_text" value="Payment For drugs" />
 				<input type="hidden" name="account" value="100712303477" />
-				<input type="hidden" name="return" value="https://hsvug.com/services/pickups.php" />
+				<input type="hidden" name="return" value="https://hsvug.com/services/pickups.php?order=823490234asjas" />
 				<input type="hidden" name="prefilled_payer_email_address" value="" />
 				<input type="hidden" name="prefilled_payer_mobile_payment_msisdn" value="" />
 				<input type="hidden" name="prefilled_payer_names" value="" />

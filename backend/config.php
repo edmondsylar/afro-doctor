@@ -27,12 +27,14 @@
       $Auth = mysqli_query($this->conn, $login_query);
       $bj = mysqli_fetch_assoc($Auth);
       if($bj['id']){
+        $orderID = uniqid('', true);
         $usr = $bj['email'];
         session_start();
         // $_SESSION["loggedin"] = true;
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $bj['email'];
         $_SESSION["name"] = $bj['names'];
+        $_SESSION["orderID"] = $orderID;
 
         return header("Location: ../admin/");
       }else{
@@ -42,10 +44,13 @@
         $bj = mysqli_fetch_assoc($Auth);
 
         if($bj['id']){
+          $orderID = uniqid('', true);
           session_start();
           $_SESSION["loggedin"] = true;
           $_SESSION["email"] = $bj['email'];
           $_SESSION["names"] = $bj['fullname'];
+          $_SESSION["number"] = $bj['phone'];
+          $_SESSION["orderID"] = $orderID;
 
           // echo isset($_SESSION['loggedin']);
           return header("Location: ../index.php");
@@ -56,6 +61,24 @@
       // echo mysqli_error($this->conn);
     }
   }
+
+
+    function confirm_Order($pickup, $contact){
+      $orderID = $_SESSION['orderID'];
+      $user = $_SESSION['names'];
+
+
+      $insert = "INSERT INTO orders(`OrderID`, `user`, `contact`, `pickup`) VALUES('$orderID', '$user', '$contact', '$pickup')";
+      if(mysqli_query($this->conn, $insert)){
+        
+        $newOrderID = uniqid('', true);
+        $_SESSION['orderID'] = $newOrderID;
+
+        header("Location: index.php");
+      }else{
+        print_r ('Something Went Wrong');
+      }
+    }
 
     function createuser($name, $email, $address, $phone, $password){
       $pass = md5($password);
@@ -169,7 +192,10 @@
     }
 
     function add($product, $price, $user){
-      $add = "INSERT INTO cart(`product`, `price`, `total`, `user`) VALUES ('$product', '$price', '$price', '$user')";
+      // Order ID kbase on session.
+      $orderID = $_SESSION['orderID'];
+
+      $add = "INSERT INTO cart(`orderID`, `product`, `price`, `total`, `user`) VALUES ( '$orderID', '$product', '$price', '$price', '$user')";
       if(mysqli_query($this->conn, $add)){
         // echo $_SESSION['url'];
         $host  = $_SERVER['HTTP_HOST'];
