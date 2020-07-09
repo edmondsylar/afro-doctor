@@ -71,6 +71,11 @@
       $insert = "INSERT INTO orders(`OrderID`, `user`, `contact`, `pickup`) VALUES('$orderID', '$user', '$contact', '$pickup')";
       if(mysqli_query($this->conn, $insert)){
         
+        // Lets update all the cart products and make them complete 
+        $update = "UPDATE cart set status='Completed' where orderID='$orderID' and status='Active'";
+        mysqli_query($this->conn, $update);
+
+        // Update the orderID so that a new shoping session is initiated
         $newOrderID = uniqid('', true);
         $_SESSION['orderID'] = $newOrderID;
 
@@ -121,7 +126,7 @@
     }
 
     function _cart($user){
-        $query = "SELECT * FROM cart where user='$user'";
+        $query = "SELECT * FROM cart where user='$user' AND status='Active'";
         $res = mysqli_query($this->conn, $query);
 
         return ($res->num_rows);
@@ -129,7 +134,7 @@
     }
 
     function empty_cart($user){
-        $query = "DELETE FROM cart WHERE user='$user'";
+        $query = "UPDATE cart set status='Deleted' where user='$user'";
         if($res=mysqli_query($this->conn, $query)){
 
             header("Location: ../index.php");
@@ -140,11 +145,11 @@
 
     // modify to add user | owner of the products
     function checkout($user){
-        $query = "SELECT SUM(`total`) as price FROM cart where user='$user'";
+        $query = "SELECT SUM(`total`) as price FROM cart where user='$user' and status='Active'";
         $res = mysqli_query($this->conn, $query);
         $_c = mysqli_fetch_assoc($res);
 
-        $prods = "SELECT * FROM cart where user='$user'";
+        $prods = "SELECT * FROM cart where user='$user' and status='Active'";
         $p_res = mysqli_query($this->conn, $prods);
 
         $cart = array(
@@ -220,7 +225,8 @@
     }
 
     function _rem($product, $user){
-      $q = "DELETE FROM cart where product='$product' AND user='$user'";
+      // $q = "DELETE FROM cart where product='$product' AND user='$user'";
+      $q = "UPDATE cart set status='Deleted' where user='$user'";
       if(mysqli_query($this->conn, $q)){
 
         header("Location: ../cart.php");
