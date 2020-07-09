@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 08:35 AM
+-- Generation Time: Jul 09, 2020 at 09:45 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -30,23 +30,28 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
+  `orderID` varchar(100) NOT NULL,
   `product` varchar(100) NOT NULL,
   `price` int(11) NOT NULL,
   `total` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 1,
-  `user` varchar(100) NOT NULL
+  `user` varchar(100) NOT NULL,
+  `status` enum('Active','Completed','Deleted') NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `product`, `price`, `total`, `quantity`, `user`) VALUES
-(25, 'Drug two', 0, 0, 1, 'gmic@gmail.com'),
-(49, 'Paracetamol', 5000, 5000, 1, 'edmondmusiitwa@gmail.com'),
-(51, 'Drug two', 0, 0, 1, 'edmondmusiitwa@gmail.com'),
-(52, 'Glimeryl 2mg', 5000, 5000, 1, 'edmondmusiitwa@gmail.com'),
-(53, 'Test Drug', 0, 0, 1, 'edmondmusiitwa@gmail.com');
+INSERT INTO `cart` (`id`, `orderID`, `product`, `price`, `total`, `quantity`, `user`, `status`) VALUES
+(8, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(9, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(10, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Completed'),
+(12, '5f06c551242830.70283615', 'Septrin', 25000, 25000, 1, 'amos.karugaba@gmail.com', 'Completed'),
+(14, '5f06c551242830.70283615', 'Lady libido', 2000, 2000, 1, 'amos.karugaba@gmail.com', 'Completed'),
+(15, '5f06c551242830.70283615', 'Diclofen 25', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Completed'),
+(16, '5f06c551242830.70283615', 'Epicephin 2g', 30000, 30000, 1, 'amos.karugaba@gmail.com', 'Completed'),
+(18, '5f06ca030bb708.51548355', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Active');
 
 -- --------------------------------------------------------
 
@@ -153,6 +158,30 @@ INSERT INTO `drugs` (`id`, `title`, `description`, `image`, `price`, `address`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `OrderID` varchar(100) NOT NULL,
+  `pickup` varchar(100) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL,
+  `status` enum('Active','Completed') NOT NULL DEFAULT 'Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `OrderID`, `pickup`, `user`, `contact`, `status`) VALUES
+(1, '5f002da0089338.49440963', 'Luzira', 'Karugaba Amos', '0778272914', 'Active'),
+(2, '5f00337bb53d81.74356572', 'Kangulumila', 'Karugaba Amos', '0778272914', 'Active'),
+(3, '5f06c551242830.70283615', 'Entebbe', 'Karugaba Amos', '0778272914', 'Active');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pickups`
 --
 
@@ -248,6 +277,12 @@ ALTER TABLE `drugs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pickups`
 --
 ALTER TABLE `pickups`
@@ -274,7 +309,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -287,6 +322,12 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `drugs`
   MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pickups`
