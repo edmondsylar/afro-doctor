@@ -24,10 +24,10 @@
 						<ul>
 							<li class="submenu"><a href="index.php" class="show-submenu">Home</a></li>
 							<li class="submenu">
-								<a href="#0" class="show-submenu"> <i class="icon-cart"></i> Cart <?php echo $type; ?> <i class="icon-down-open-mini"></i></a>
+								<a href="#0" class="show-submenu"> <i class="icon-cart"></i> Shopping Busket <?php echo $type; ?> <i class="icon-down-open-mini"></i></a>
 								<ul>
-									<li><a href="cart.php">View Cart</a></li>
-									<li><a href="backend/empty_cart.php">Empty Cart</a></li>
+									<li><a href="cart.php">View Shopping Busket</a></li>
+									<li><a href="backend/empty_cart.php">Empty Shopping Busket</a></li>
 								</ul>
                             </li>
                             

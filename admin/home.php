@@ -30,10 +30,10 @@
                 <!-- <img src="img/icon_cat_8.svg" width="60" height="60" alt=""> -->
                 <img  width="60" height="60" src="data:image/jpg;charset=utf8;base64,<?php echo $image; ?>" alt="">
                 <h3><?php echo $value['title']?></h3>
-                <ul class="clearfix">
+                <!-- <ul class="clearfix">
                   <li><strong>Delete</strong></li>
                   <li><strong>Edit</strong></li>
-                </ul>
+                </ul> -->
               </a>
             </div>
           <?php endforeach; ?>
@@ -57,10 +57,10 @@
                 <i class="icon-info-4"></i>
                 <img  width="60" height="60" src="data:image/jpg;charset=utf8;base64,<?php echo $image; ?>" alt="">
                 <h3><?php echo $value['title']?></h3>
-                <ul class="clearfix">
+                <!-- <ul class="clearfix">
                   <li><strong>Delete</strong></li>
                   <li><strong>Edit</strong></li>
-                </ul>
+                </ul> -->
               </a>
             </div>
           <?php endforeach; ?>

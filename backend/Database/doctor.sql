@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2020 at 09:45 AM
+-- Generation Time: Aug 02, 2020 at 03:53 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -46,12 +46,14 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`id`, `orderID`, `product`, `price`, `total`, `quantity`, `user`, `status`) VALUES
 (8, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
 (9, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
-(10, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Completed'),
-(12, '5f06c551242830.70283615', 'Septrin', 25000, 25000, 1, 'amos.karugaba@gmail.com', 'Completed'),
-(14, '5f06c551242830.70283615', 'Lady libido', 2000, 2000, 1, 'amos.karugaba@gmail.com', 'Completed'),
-(15, '5f06c551242830.70283615', 'Diclofen 25', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Completed'),
-(16, '5f06c551242830.70283615', 'Epicephin 2g', 30000, 30000, 1, 'amos.karugaba@gmail.com', 'Completed'),
-(18, '5f06ca030bb708.51548355', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Active');
+(10, '5f06c551242830.70283615', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(12, '5f06c551242830.70283615', 'Septrin', 25000, 25000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(14, '5f06c551242830.70283615', 'Lady libido', 2000, 2000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(15, '5f06c551242830.70283615', 'Diclofen 25', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(16, '5f06c551242830.70283615', 'Epicephin 2g', 30000, 30000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(18, '5f06ca030bb708.51548355', 'Paracetamol', 5000, 5000, 1, 'amos.karugaba@gmail.com', 'Deleted'),
+(19, '5f26c34d16e6c2.60853440', 'Paracetamol', 5000, 5000, 1, 'info@hsvug.com', 'Active'),
+(20, '5f26c34d16e6c2.60853440', 'Test Drug', 0, 0, 1, 'info@hsvug.com', 'Active');
 
 -- --------------------------------------------------------
 
@@ -309,7 +311,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `customers`

@@ -41,7 +41,7 @@ include_once "includes/top.php";
 							<form action="backend/add.php" method="POST" style="float: right;">
 								<input type="hidden" name="product" value="<?php echo $value['title'] ?>">
 								<input type="hidden" name="price" value="<?php echo $value['price'] ?>">
-								<input type="submit" class="btn btn-sm btn-success" value="Add to Cart" />
+								<input type="submit" class="btn btn-sm btn-success" value="Add to Busket" />
 							</form>
 						<?php } ?>
 						<figure>
@@ -76,7 +76,7 @@ include_once "includes/top.php";
 							<form action="backend/add.php" method="POST" style="float: right;">
 								<input type="hidden" name="product" value="<?php echo $value['title'] ?>">
 								<input type="hidden" name="price" value="<?php echo $value['price'] ?>">
-								<input type="submit" class="btn btn-sm btn-success" value="Add to Cart" />
+								<input type="submit" class="btn btn-sm btn-success" value="Add to Busket" />
 							</form>
 						<?php } ?>
 						<figure>
